@@ -1,0 +1,6 @@
+include ':app',
+        //libs
+        ':libs:base',
+        //modules
+        ':modules:mainpage'
+rootProject.name='PackIdea'
