@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">mainpage</string>
+    <string name="mainpage_app_name">mainpage</string>
+
+    <string name="mainpage_navigation_drawer_open">Open navigation drawer</string>
+    <string name="mainpage_navigation_drawer_close">Close navigation drawer</string>
+    <string name="mainpage_nav_header_title">Android Studio</string>
+    <string name="mainpage_nav_header_subtitle">android.studio@android.com</string>
+    <string name="mainpage_nav_header_desc">Navigation header</string>
+    <string name="mainpage_action_settings">Settings</string>
+
+    <string name="mainpage_menu_home">Home</string>
+    <string name="mainpage_menu_gallery">Gallery</string>
+    <string name="mainpage_menu_slideshow">Slideshow</string>
+    <string name="mainpage_menu_tools">Tools</string>
+    <string name="mainpage_menu_share">Share</string>
+    <string name="mainpage_menu_send">Send</string>
 </resources>

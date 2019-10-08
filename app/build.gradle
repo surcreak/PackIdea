@@ -105,14 +105,12 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
     //kapt deps.arouter.compiler
+    implementation deps.multidex
 
     implementation deps.androidx_core
-    implementation deps.androidx_navigation.navigation_fragment_ktx
-    implementation deps.androidx_navigation.navigation_ui_ktx
-    implementation deps.constraint_layout
-    implementation deps.lifecycle.extensions
     implementation deps.support.app_compat
-    implementation deps.support.design
 
     implementation project(':libs:base')
+    implementation project(':modules:mainpage')
+    implementation project(':modules:homepage')
 }

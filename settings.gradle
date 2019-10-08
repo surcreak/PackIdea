@@ -2,5 +2,6 @@ include ':app',
         //libs
         ':libs:base',
         //modules
-        ':modules:mainpage'
+        ':modules:mainpage',
+        ':modules:homepage',
 rootProject.name='PackIdea'

@@ -1,2 +1,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.surcreak.mainpage" />
+    package="com.surcreak.packidea.mainpage" >
+
+    <application>
+
+        <!--***** Activity *****-->
+        <activity
+            android:name=".ui.MainpageActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+    <meta-data
+        android:name="com.surcreak.packidea.mainpage.MainPageApplication"
+        android:value="IModuleConfig" />
+</manifest>

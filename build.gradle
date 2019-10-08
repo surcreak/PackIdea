@@ -17,22 +17,19 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 allprojects {
     addRepos(repositories)
-    tasks.withType(JavaCompile){
+    tasks.withType(JavaCompile) {
         //全局设定编码
         options.encoding = "UTF-8"
         //设置java版本
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-}
-
-subprojects {
-
 }
 
 task clean(type: Delete) {

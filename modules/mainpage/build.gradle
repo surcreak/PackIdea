@@ -15,6 +15,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
+
+    resourcePrefix "mainpage_"
 }
 
 dependencies {
@@ -27,4 +29,11 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation deps.lifecycle.viewmodel_ktx
     implementation deps.support.app_compat
+    implementation deps.androidx_navigation.navigation_fragment_ktx
+    implementation deps.androidx_navigation.navigation_ui_ktx
+    implementation deps.constraint_layout
+    implementation deps.lifecycle.extensions
+    implementation deps.support.design
+
+    implementation project(":libs:base")
 }
