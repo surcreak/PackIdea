@@ -7,7 +7,7 @@ class DataState<T> {
 
     @NonNull
     @get:NonNull
-    var status: DataStatus? = null
+    var status: DataStatus = DataStatus.LOADING
         private set
 
     @Nullable

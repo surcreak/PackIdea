@@ -42,4 +42,11 @@ dependencies {
     api deps.retrofit.runtime
     api deps.retrofit.gson
     api deps.retrofit.adapter_coroutines
+
+    api deps.constraint_layout
+    api deps.androidx_core
+    api deps.kotlin.stdlib
+    api deps.lifecycle.viewmodel_ktx
+
+    api deps.adapterHelper
 }

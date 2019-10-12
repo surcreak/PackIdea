@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 abstract class BaseFragment : Fragment() {
+
     abstract fun getLayoutId(): Int
     abstract fun onViewCreated(savedInstanceState: Bundle?)
 

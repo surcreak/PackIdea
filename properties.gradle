@@ -76,6 +76,7 @@ versions.track = "1.2.3"
 versions.androidx_navigation = "2.0.0"
 versions.androidx_core = "1.0.2"
 versions.retrofit2_kotlin_coroutines_adapter = "0.9.2"
+versions.adapterHelper = "2.9.35"
 
 //定义库
 ext.deps = [:]
@@ -233,7 +234,7 @@ deps.jsbridge = "com.github.lzyzsd:jsbridge:$versions.jsbridge"
 deps.statusbar_util = "com.jaeger.statusbarutil:library:$versions.statusbar_util"
 deps.wheelpicker = "cn.aigestudio.wheelpicker:WheelPicker:$versions.wheelpicker"
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
-
+deps.adapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.adapterHelper"
 ext.deps = deps
 
 static def addRepos(RepositoryHandler handler) {
