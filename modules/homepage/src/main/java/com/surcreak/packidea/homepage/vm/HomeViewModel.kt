@@ -15,7 +15,7 @@ class HomeViewModel : ViewModel() {
 
     fun test() {
         _test.postLoading()
-        //_test.postSuccess(TestModel("home"))
-        _test.postError(Exception())
+        _test.postSuccess(TestModel("home"))
+        //_test.postError(Exception())
     }
 }

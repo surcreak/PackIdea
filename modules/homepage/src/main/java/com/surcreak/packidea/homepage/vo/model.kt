@@ -6,11 +6,11 @@ import com.surcreak.packidea.base.vo.BaseVO
 class TestModel(val name: String) : BaseVO(), MultiItemEntity {
 
     override fun getItemType(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return 1
     }
 
     override fun isEmpty(): Boolean {
-        return true
+        return false
     }
 
 }

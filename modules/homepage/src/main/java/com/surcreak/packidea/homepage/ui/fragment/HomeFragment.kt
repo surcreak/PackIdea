@@ -2,11 +2,13 @@ package com.surcreak.packidea.homepage.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.surcreak.packidea.base.ui.fragment.BaseFragment
+import com.surcreak.packidea.base.vm.DataStatus
 import com.surcreak.packidea.homepage.R
 import com.surcreak.packidea.homepage.vm.HomeViewModel
 import com.surcreak.packidea.homepage.vo.TestModel
@@ -28,7 +30,18 @@ class HomeFragment : BaseFragment() {
         refreshLayout.observeStatus(this, homeViewModel.test)
         recycleView.adapter = adapter
 
+        observer()
         homeViewModel.test()
+    }
+
+    private fun observer() {
+        homeViewModel.test.observe(this, Observer {
+            when(it.status) {
+                DataStatus.SUCCESS -> {
+                    adapter.addData(it.data!!)
+                }
+            }
+        })
     }
 }
 
