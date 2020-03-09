@@ -2,6 +2,7 @@ package com.surcreak.packidea.mainpage
 
 import android.app.Application
 import android.content.Context
+import com.squareup.leakcanary.LeakCanary
 import com.surcreak.packidea.base.application.IAppLife
 import com.surcreak.packidea.base.application.IModuleConfig
 
@@ -11,6 +12,7 @@ class MainPageApplication : IModuleConfig, IAppLife{
     }
 
     override fun onCreate(application: Application) {
+        LeakCanary.install(application);
     }
 
     override fun onTerminate(application: Application) {

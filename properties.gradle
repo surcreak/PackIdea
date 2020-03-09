@@ -77,6 +77,7 @@ versions.androidx_navigation = "2.0.0"
 versions.androidx_core = "1.0.2"
 versions.retrofit2_kotlin_coroutines_adapter = "0.9.2"
 versions.adapterHelper = "2.9.35"
+versions.leakcanary = "1.6.2"
 
 //定义库
 ext.deps = [:]
@@ -235,23 +236,18 @@ deps.statusbar_util = "com.jaeger.statusbarutil:library:$versions.statusbar_util
 deps.wheelpicker = "cn.aigestudio.wheelpicker:WheelPicker:$versions.wheelpicker"
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 deps.adapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.adapterHelper"
+deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
 ext.deps = deps
 
 static def addRepos(RepositoryHandler handler) {
     handler.maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     handler.maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    handler.maven { url 'https://dl.bintray.com/umsdk/release' }
+    handler.maven { url 'https://jitpack.io' }
+    handler.maven { url 'http://maven.aliyun.com/nexus/content/repositories/releases/' }
     handler.google()
     handler.jcenter()
     handler.mavenCentral()
-    handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-    handler.maven { url 'https://dl.bintray.com/umsdk/release' }
-
-    handler.maven {
-        url 'https://jitpack.io'
-    }
-
-    handler.maven {
-        url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
-    }
 }
 ext.addRepos = this.&addRepos
