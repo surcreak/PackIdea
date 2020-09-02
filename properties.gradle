@@ -19,6 +19,8 @@
  * maven repositories.
  **/
 
+
+
 def build_versions = [:]
 build_versions.min_sdk = 21
 build_versions.target_sdk = 28
@@ -28,7 +30,9 @@ build_versions.version_name = "1.0.0"
 ext.build_versions = build_versions
 
 //定义版本号
+ext.versions = [:]
 def versions = [:]
+
 versions.arch_core = "2.0.0"
 versions.room = "2.1.0-alpha03"
 versions.lifecycle = "2.0.0"
@@ -78,6 +82,8 @@ versions.androidx_core = "1.0.2"
 versions.retrofit2_kotlin_coroutines_adapter = "0.9.2"
 versions.adapterHelper = "2.9.35"
 versions.leakcanary = "1.6.2"
+versions.hilt = "2.28-alpha"
+ext.versions = versions
 
 //定义库
 ext.deps = [:]
@@ -207,6 +213,11 @@ refresh_layout.header_two_level = "com.scwang.smart:refresh-header-two-level:$ve
 refresh_layout.header_footer_ball = "com.scwang.smart:refresh-footer-ball:$versions.smart_refresh_layout"
 refresh_layout.header_footer_classics = "com.scwang.smart:refresh-footer-classics:$versions.smart_refresh_layout"
 deps.refresh_layout = refresh_layout
+
+def hilt = [:]
+hilt.hilt_android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.hilt_android_compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
+deps.hilt = hilt
 
 //其他库
 deps.androidx_core = "androidx.core:core-ktx:$versions.androidx_core"

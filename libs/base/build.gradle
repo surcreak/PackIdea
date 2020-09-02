@@ -49,4 +49,8 @@ dependencies {
     api deps.lifecycle.viewmodel_ktx
 
     api deps.adapterHelper
+
+    // hilt
+    api deps.hilt.hilt_android
+    kapt deps.hilt.hilt_android_compiler
 }
