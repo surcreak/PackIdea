@@ -18,4 +18,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <declare-styleable name="ForegroundFrameLayout">
+        <attr name="rlRadius" format="dimension" />
+        <attr name="foreStrokeWidth" format="dimension|reference" />
+        <attr name="foreStrokeColor" format="reference|color" />
+    </declare-styleable>
+
 </resources>

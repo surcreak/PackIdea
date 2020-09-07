@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:ignore="ResourceName">
 
-    <com.surcreak.packidea.homepage.ui.view.ForegroundFrameLayout
+    <com.surcreak.packidea.base.ui.view.ForegroundFrameLayout
         android:layout_width="800dp"
         android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,6 +19,6 @@
             android:layout_height="match_parent"
             android:background="@android:color/holo_orange_light"/>
 
-    </com.surcreak.packidea.homepage.ui.view.ForegroundFrameLayout>
+    </com.surcreak.packidea.base.ui.view.ForegroundFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
