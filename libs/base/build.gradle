@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -53,4 +54,11 @@ dependencies {
     // hilt
     api deps.hilt.hilt_android
     kapt deps.hilt.hilt_android_compiler
+
+    // navigation
+    api deps.navigation.fragment_ktx
+    api deps.navigation.ui_ktx
+
+    // coroutines
+    api deps.coroutines.core
 }

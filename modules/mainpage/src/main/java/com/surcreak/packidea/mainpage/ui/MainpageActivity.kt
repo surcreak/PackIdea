@@ -13,7 +13,9 @@ import android.view.Menu
 import androidx.navigation.fragment.FragmentNavigator
 import com.surcreak.packidea.base.ui.activity.BaseActivity
 import com.surcreak.packidea.mainpage.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainpageActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.mainpage_activity_main
 
@@ -45,7 +47,8 @@ class MainpageActivity : BaseActivity() {
                 R.id.nav_tools,
                 R.id.nav_share,
                 R.id.nav_send
-            ), drawerLayout
+            ),
+            drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

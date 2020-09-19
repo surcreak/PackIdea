@@ -25,8 +25,6 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
 
-    implementation deps.androidx_navigation.navigation_fragment_ktx
-    implementation deps.androidx_navigation.navigation_ui_ktx
     implementation deps.lifecycle.extensions
     implementation deps.support.design
 

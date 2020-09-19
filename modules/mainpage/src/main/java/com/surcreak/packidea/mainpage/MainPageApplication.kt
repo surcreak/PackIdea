@@ -12,7 +12,7 @@ class MainPageApplication : IModuleConfig, IAppLife{
     }
 
     override fun onCreate(application: Application) {
-        LeakCanary.install(application);
+        LeakCanary.install(application)
     }
 
     override fun onTerminate(application: Application) {

@@ -43,14 +43,10 @@ public class ForegroundFrameLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ForegroundFrameLayout);
-        mRadius = ta.getDimension(R.styleable.ForegroundFrameLayout_rlRadius, 10);
+        mRadius = ta.getDimension(R.styleable.ForegroundFrameLayout_rlRadius, 50);
         foreStrokeWidth = ta.getDimension(R.styleable.ForegroundFrameLayout_foreStrokeWidth, 20F);
         foreStrokeColor = ta.getColor(R.styleable.ForegroundFrameLayout_foreStrokeColor, Color.BLUE);
         ta.recycle();
-
-        mRadius = 30F;
-        foreStrokeWidth = 20F;
-        foreStrokeColor = Color.BLUE;
 
         mPath = new Path();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -63,10 +59,13 @@ public class ForegroundFrameLayout extends FrameLayout {
         mPaintForeStroke.setStyle(Paint.Style.STROKE);
         mPaintForeStroke.setStrokeWidth(foreStrokeWidth);
         mPaintForeStroke.setColor(foreStrokeColor);
-
         if (getBackground() == null) {
-            setBackgroundColor(Color.WHITE);
+            setBackgroundColor(Color.GRAY);
         }
+
+        //有些机器子view中有webview，导致effectDraw会闪屏可以使用Outline.
+//        setOutlineProvider(new RoundRectOutlineProvider(mRadius));
+//        setClipToOutline(true);
     }
 
     /**
@@ -101,9 +100,18 @@ public class ForegroundFrameLayout extends FrameLayout {
         return bm;
     }
 
+    private Bitmap makeRect(int w, int h) {
+        Bitmap bm = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bm);
+        mPaint.setColor(Color.WHITE);
+        c.drawRect(mRectF, mPaint);
+        return bm;
+    }
+
     @SuppressLint("MissingSuperCall")
     @Override
     public void draw(Canvas canvas) {
+        super.draw(canvas);
         if (isEffect) {
             effectDraw(canvas);
         } else {
@@ -120,7 +128,6 @@ public class ForegroundFrameLayout extends FrameLayout {
         int layerId =  canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG);
         super.draw(canvas);
         canvas.drawPath(genPath(), mPaintForeStroke);
-        canvas.drawRect(mRectF, mPaintForeStroke);
         mPaint.setXfermode(xfermode);
         canvas.drawBitmap(roundRectBitmap,0, 0, mPaint);
         mPaint.setXfermode(null);
@@ -139,6 +146,12 @@ public class ForegroundFrameLayout extends FrameLayout {
         super.draw(canvas);
         canvas.drawPath(genPath(), mPaintForeStroke);
         canvas.restore();
+    }
+
+    @Override
+    public void onDrawForeground(Canvas canvas) {
+        super.onDrawForeground(canvas);
+        canvas.drawPath(genPath(), mPaintForeStroke);
     }
 
     /**

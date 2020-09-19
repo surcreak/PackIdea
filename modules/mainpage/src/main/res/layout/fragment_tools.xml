@@ -4,21 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="100dp"
+    android:background="@android:color/holo_orange_dark"
     tools:ignore="ResourceName">
 
     <com.surcreak.packidea.base.ui.view.ForegroundFrameLayout
-        android:layout_width="800dp"
-        android:layout_height="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/holo_orange_light"/>
+        <TextView
+            android:id="@+id/text_tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </com.surcreak.packidea.base.ui.view.ForegroundFrameLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
