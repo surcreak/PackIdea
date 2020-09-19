@@ -7,12 +7,20 @@
 
     <com.surcreak.packidea.base.ui.view.RefreshLayout
         android:id="@+id/refreshLayout"
+        android:background="@android:color/holo_orange_dark"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleView"
+            android:background="@android:color/holo_orange_light"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
     </com.surcreak.packidea.base.ui.view.RefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

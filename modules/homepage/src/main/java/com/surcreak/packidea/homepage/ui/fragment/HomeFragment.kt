@@ -1,9 +1,8 @@
 package com.surcreak.packidea.homepage.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -19,7 +18,7 @@ class HomeFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.homepage_fragment_home
 
     private val homeViewModel by lazy {
-        ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
     private val adapter by lazy {
@@ -30,12 +29,13 @@ class HomeFragment : BaseFragment() {
         refreshLayout.observeStatus(this, homeViewModel.test)
         recycleView.adapter = adapter
 
+        refreshLayout.setOnRefreshListener { homeViewModel.test() }
         observer()
         homeViewModel.test()
     }
 
     private fun observer() {
-        homeViewModel.test.observe(this, Observer {
+        homeViewModel.test.observe(viewLifecycleOwner, Observer {
             when(it.status) {
                 DataStatus.SUCCESS -> {
                     adapter.addData(it.data!!)

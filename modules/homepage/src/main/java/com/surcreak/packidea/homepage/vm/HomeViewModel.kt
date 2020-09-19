@@ -10,12 +10,11 @@ import java.lang.Exception
 class HomeViewModel : ViewModel() {
 
     private val _test = StateLiveData<TestModel>()
-
     val test: StateLiveData<TestModel> = _test
 
     fun test() {
-        _test.postLoading()
-        _test.postSuccess(TestModel("home"))
-        //_test.postError(Exception())
+        //_test.postLoading()
+        //_test.postSuccess(TestModel("home"))
+        _test.postError(Exception())
     }
 }
