@@ -1,4 +1,4 @@
-package com.surcreak.packidea.mainpage.ui.tools
+package com.surcreak.packidea.mainpage.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.surcreak.packidea.mainpage.R
+import com.surcreak.packidea.mainpage.vm.ToolsViewModel
 
 class ToolsFragment : Fragment() {
 
@@ -21,7 +22,7 @@ class ToolsFragment : Fragment() {
     ): View? {
         toolsViewModel =
             ViewModelProviders.of(this).get(ToolsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_tools, container, false)
+        val root = inflater.inflate(R.layout.mainpage_fragment_tools, container, false)
         val textView: TextView = root.findViewById(R.id.text_tools)
         toolsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it

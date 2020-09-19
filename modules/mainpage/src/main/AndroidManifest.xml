@@ -3,19 +3,6 @@
 
     <application>
 
-        <!--***** Activity *****-->
-        <activity
-            android:name=".ui.MainpageActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|keyboardHidden|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
     </application>
 
     <meta-data

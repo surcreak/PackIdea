@@ -110,7 +110,7 @@ dependencies {
     implementation deps.androidx_core
     implementation deps.support.app_compat
 
-    implementation project(':libs:base')
-    implementation project(':modules:mainpage')
-    implementation project(':modules:homepage')
+    api project(':libs:base')
+    api project(':modules:mainpage')
+    api project(':modules:homepage')
 }

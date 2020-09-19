@@ -1,4 +1,4 @@
-package com.surcreak.packidea.mainpage.ui.send
+package com.surcreak.packidea.mainpage.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,3 +1,16 @@
 <resources>
-    <string name="mainpage_app_name">base</string>
+
+    <string name="base_navigation_drawer_open">Open navigation drawer</string>
+    <string name="base_navigation_drawer_close">Close navigation drawer</string>
+    <string name="base_nav_header_title">Android Studio</string>
+    <string name="base_nav_header_subtitle">android.studio@android.com</string>
+    <string name="base_nav_header_desc">Navigation header</string>
+    <string name="base_action_settings">Settings</string>
+
+    <string name="base_menu_home">Home</string>
+    <string name="base_menu_gallery">Gallery</string>
+    <string name="base_menu_slideshow">Slideshow</string>
+    <string name="base_menu_tools">Tools</string>
+    <string name="base_menu_share">Share</string>
+    <string name="base_menu_send">Send</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.surcreak.packidea
+package com.surcreak.packidea.com.surcreak.packidea
 
 import android.content.Context
 import androidx.multidex.MultiDex

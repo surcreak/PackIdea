@@ -1,4 +1,4 @@
-package com.surcreak.packidea.mainpage.ui.tools
+package com.surcreak.packidea.mainpage.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
