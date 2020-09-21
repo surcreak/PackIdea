@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.BaseViewHolder
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.surcreak.packidea.base.ui.fragment.BaseFragment
 import com.surcreak.packidea.base.vm.DataStatus
 import com.surcreak.packidea.homepage.R
@@ -28,6 +28,7 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(savedInstanceState: Bundle?) {
         refreshLayout.observeStatus(this, homeViewModel.test)
         recycleView.adapter = adapter
+        adapter.setEmptyView(R.layout.default_list_empty)
 
         refreshLayout.setOnRefreshListener { homeViewModel.test() }
         observer()
@@ -40,6 +41,11 @@ class HomeFragment : BaseFragment() {
                 DataStatus.SUCCESS -> {
                     adapter.addData(it.data!!)
                 }
+                DataStatus.UNKONW -> TODO()
+                DataStatus.ERROR -> {
+
+                }
+                DataStatus.LOADING -> TODO()
             }
         })
     }
@@ -47,8 +53,9 @@ class HomeFragment : BaseFragment() {
 
 class HomeAdapter(layoutResId: Int, var datas: MutableList<TestModel>)
     : BaseQuickAdapter<TestModel, BaseViewHolder>(layoutResId, datas) {
-    override fun convert(helper: BaseViewHolder?, item: TestModel?) {
 
+    override fun convert(holder: BaseViewHolder, item: TestModel) {
+        TODO("Not yet implemented")
     }
 }
 
@@ -60,7 +67,7 @@ class HomeAdapter1(var datas: MutableList<TestModel>)
         addItemType(2, R.layout.homepage_home_item2)
     }
 
-    override fun convert(helper: BaseViewHolder?, item: TestModel?) {
+    override fun convert(holder: BaseViewHolder, item: TestModel) {
 
     }
 }

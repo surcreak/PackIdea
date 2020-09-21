@@ -24,14 +24,12 @@ class RefreshLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : SmartRefreshLayout(context, attrs) {
 
-    var oldDataStatus = DataStatus.LOADING
-
     private val statusView by lazy {
         RelativeLayout(context).apply {
             isClickable = false
 //            orientation = LinearLayout.VERTICAL
 //            gravity = Gravity.CENTER
-            setBackgroundColor(Color.TRANSPARENT)
+            setBackgroundColor(Color.RED)
         }
     }
 
@@ -51,54 +49,31 @@ class RefreshLayout @JvmOverloads constructor(
         LayoutInflater.from(context).inflate(loadingViewLayoutID, null)
     }
 
-    init {
-        addView(statusView)
+    override fun onFinishInflate() {
+        super.onFinishInflate()
     }
 
     fun <T : BaseVO> observeStatus(owner: LifecycleOwner, liveData: StateLiveData<T>) {
         liveData.observe(owner, Observer {
-            if (oldDataStatus == it.status) {
-                return@Observer
-            }
-
-            if (mRefreshContent == null) {
-                mRefreshContent = RefreshContentWrapper(errorView)
-            }
 
             statusView.removeAllViews()
             when (it.status) {
-                DataStatus.LOADING -> {
-//                    statusView.addView(
-//                        loadingView, RelativeLayout.LayoutParams(
-//                            RelativeLayout.LayoutParams.MATCH_PARENT,
-//                            RelativeLayout.LayoutParams.MATCH_PARENT
-//                        )
-//                    )
-                }
                 DataStatus.ERROR -> {
-//                    statusView.addView(
-//                        errorView, RelativeLayout.LayoutParams(
-//                            RelativeLayout.LayoutParams.MATCH_PARENT,
-//                            RelativeLayout.LayoutParams.MATCH_PARENT
-//                        )
-//                    )
-                    finishRefresh()
+                    finishRefresh(false)
                 }
                 DataStatus.SUCCESS -> {
                     if (it.data?.isEmpty() != false) {
-//                        statusView.addView(
-//                            emptyView, RelativeLayout.LayoutParams(
-//                                RelativeLayout.LayoutParams.MATCH_PARENT,
-//                                RelativeLayout.LayoutParams.MATCH_PARENT
-//                            )
-//                        )
+                        statusView.addView(
+                            emptyView, RelativeLayout.LayoutParams(
+                                RelativeLayout.LayoutParams.MATCH_PARENT,
+                                RelativeLayout.LayoutParams.MATCH_PARENT
+                            )
+                        )
                     }
                     finishRefresh()
                 }
-                else -> {
-                }
+                else -> { }
             }
-            oldDataStatus = it.status
         })
     }
 }
