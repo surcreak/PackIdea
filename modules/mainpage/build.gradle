@@ -30,5 +30,5 @@ dependencies {
     implementation deps.support.design
     implementation deps.leakcanary
 
-    implementation project(":libs:base")
+    implementation project(":modules:common")
 }

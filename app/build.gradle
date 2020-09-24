@@ -52,6 +52,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             //签名
             signingConfig signingConfigs.debug
+            //id后缀
+            applicationIdSuffix ".debug"
+            debuggable true
         }
 
         release {
@@ -81,9 +84,23 @@ android {
     }
 
     productFlavors {
-        qa {}
-        uat {}
-        online {}
+        qa {
+            dimension 'qa'
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+        }
+        uat {
+            dimension 'uat'
+            applicationIdSuffix ".uat"
+            versionNameSuffix "-uat"
+        }
+        online {
+            dimension 'online'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

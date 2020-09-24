@@ -16,7 +16,7 @@
 
         <!--***** Activity *****-->
         <activity
-            android:name="com.surcreak.packidea.ui.activity.MainpageActivity"
+            android:name="com.surcreak.packidea.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>

@@ -2,6 +2,9 @@
 
 buildscript {
     apply from: 'properties.gradle'
+    ext {
+        kotlin_version = '1.4.10'
+    }
 
     repositories {
         addRepos(repositories)

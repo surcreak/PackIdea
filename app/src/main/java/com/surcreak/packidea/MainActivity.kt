@@ -1,4 +1,4 @@
-package com.surcreak.packidea.ui.activity
+package com.surcreak.packidea
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -18,7 +18,7 @@ import com.surcreak.packidea.base.ui.activity.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainpageActivity : BaseActivity() {
+class MainActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.app_activity_main
 
     private lateinit var appBarConfiguration: AppBarConfiguration

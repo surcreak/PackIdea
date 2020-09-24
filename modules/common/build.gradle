@@ -16,11 +16,11 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
-    resourcePrefix "homepage_"
+    resourcePrefix "common_"
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
@@ -28,5 +28,5 @@ dependencies {
     implementation deps.lifecycle.extensions
     implementation deps.support.design
 
-    implementation project(":modules:common")
+    api project(":libs:base")
 }
