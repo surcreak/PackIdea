@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -25,8 +27,11 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
 
-    implementation deps.lifecycle.extensions
-    implementation deps.support.design
+    // hilt
+    api deps.hilt.android
+    kapt deps.hilt.android_compiler
+    api deps.hilt_lifecycle.lifecycle_viewmodel
+    kapt deps.hilt_lifecycle.compiler
 
-    implementation project(":modules:common")
+    api project(":modules:common")
 }

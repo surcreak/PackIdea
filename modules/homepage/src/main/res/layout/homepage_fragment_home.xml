@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.surcreak.packidea.base.ui.view.RefreshLayout
-        android:id="@+id/refreshLayout"
-        android:background="@android:color/holo_orange_dark"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content" />
 
-        <com.scwang.smart.refresh.header.ClassicsHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleView"
-            android:background="@android:color/holo_orange_light"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</LinearLayout>
 
-    </com.surcreak.packidea.base.ui.view.RefreshLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <com.surcreak.packidea.base.ui.view.RefreshLayout-->
+    <!--        android:id="@+id/refreshLayout"-->
+    <!--        android:background="@android:color/holo_orange_dark"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--        <com.scwang.smart.refresh.header.ClassicsHeader-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"/>-->
+
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:id="@+id/recycleView"-->
+    <!--            android:background="@android:color/holo_orange_light"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>-->
+
+    <!--    </com.surcreak.packidea.base.ui.view.RefreshLayout>-->

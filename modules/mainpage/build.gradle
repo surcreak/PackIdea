@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
+apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -30,5 +32,11 @@ dependencies {
     implementation deps.support.design
     implementation deps.leakcanary
 
-    implementation project(":modules:common")
+    // hilt
+    api deps.hilt.android
+    kapt deps.hilt.android_compiler
+    api deps.hilt_lifecycle.lifecycle_viewmodel
+    kapt deps.hilt_lifecycle.compiler
+
+    api project(":modules:common")
 }

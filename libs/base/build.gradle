@@ -38,6 +38,7 @@ dependencies {
     api deps.lifecycle.extensions
     api deps.support.app_compat
     api deps.gson.runtime
+    api deps.support.design
 
     // refresh_layout
     api deps.refresh_layout.kernel
@@ -51,12 +52,9 @@ dependencies {
     api deps.androidx_core
     api deps.kotlin.stdlib
     api deps.lifecycle.viewmodel_ktx
+    api deps.collection_ktx
 
     api deps.adapterHelper
-
-    // hilt
-    api deps.hilt.hilt_android
-    kapt deps.hilt.hilt_android_compiler
 
     // navigation
     api deps.navigation.fragment_ktx
@@ -64,4 +62,24 @@ dependencies {
 
     // coroutines
     api deps.coroutines.core
+
+    // pagin
+    api deps.paging.paging_runtime
+
+    // viewpager2
+    api deps.viewpager2
+
+    // dagger
+//    api deps.dagger.runtime
+//    api deps.dagger.android
+//    api deps.dagger.android_support
+//    kapt deps.dagger.compiler
+//    kapt deps.dagger.android_support_compiler
+
+    // hilt
+    api deps.hilt.android
+    kapt deps.hilt.android_compiler
+    api deps.hilt_lifecycle.lifecycle_viewmodel
+    kapt deps.hilt_lifecycle.compiler
+
 }

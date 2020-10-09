@@ -20,6 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class com.surcreak.packidea.com.surcreak.packidea.AppApplication
+-keep class com.surcreak.packidea.AppApplication
 -keep class com.surcreak.packidea.mainpage.MainPageApplication
 -keep class com.surcreak.packidea.homepage.HomePageApplication

@@ -1,47 +1,44 @@
 package com.surcreak.packidea
 
 import android.os.Bundle
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.surcreak.packidea.R
-import com.surcreak.packidea.base.ui.activity.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class MainActivity : BaseActivity() {
-    override fun getLayoutId(): Int = R.layout.app_activity_main
+class MainActivity : AppCompatActivity() {
+    //override fun getLayoutId(): Int = R.layout.app_activity_main
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    override fun onViewCreated(savedInstanceState: Bundle?) {
-        //val toolbar: Toolbar = findViewById(R.id.toolbar)
-        //setSupportActionBar(toolbar)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.app_activity_main)
+
+        onViewCreated(savedInstanceState)
+    }
+
+    fun onViewCreated(savedInstanceState: Bundle?) {
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
-//        navController.graph.addDestination(
-//            FragmentNavigator(
-//                this,
-//                supportFragmentManager,
-//                R.id.nav_host_fragment
-//            ).createDestination().apply {
-//                id = R.id.nav_home
-//            })
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_home,
@@ -52,9 +49,7 @@ class MainActivity : BaseActivity() {
             ),
             drawerLayout
         )
-        //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
         setupBottomNavMenu(navController)
     }
 
@@ -70,7 +65,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
+        //val navController = findNavController(R.id.nav_host_fragment)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
