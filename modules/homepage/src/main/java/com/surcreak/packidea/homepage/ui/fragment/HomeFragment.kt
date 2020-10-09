@@ -1,14 +1,12 @@
 package com.surcreak.packidea.homepage.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
 import com.surcreak.packidea.base.ui.fragment.BaseFragment
 import com.surcreak.packidea.homepage.R
 import com.surcreak.packidea.homepage.ui.adapter.HomeViewPagerAdapter
 import com.surcreak.packidea.homepage.vm.HomeViewModel
-import com.surcreak.packidea.homepage.vm.RecommendViewModel
 import com.surcreak.packidea.homepage.vo.HomePager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.homepage_fragment_home.*
@@ -17,8 +15,6 @@ import kotlinx.android.synthetic.main.homepage_fragment_home.*
 class HomeFragment : BaseFragment() {
 
     override fun getLayoutId(): Int = R.layout.homepage_fragment_home
-
-    private val recommendViewModel : RecommendViewModel by viewModels()
 
     private val homeViewModel by lazy {
         ViewModelProvider(this).get(HomeViewModel::class.java)
