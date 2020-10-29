@@ -69,6 +69,10 @@ dependencies {
     // viewpager2
     api deps.viewpager2
 
+    // glide
+    api deps.glide.runtime
+    kapt deps.glide.compiler
+
     // dagger
 //    api deps.dagger.runtime
 //    api deps.dagger.android

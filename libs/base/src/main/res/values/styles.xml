@@ -24,4 +24,13 @@
         <attr name="foreStrokeColor" format="reference|color" />
     </declare-styleable>
 
+    <style name="ShapeAppearance.Sunflower.Card" parent="ShapeAppearance.MaterialComponents">
+        <item name="cornerFamily">rounded</item>
+
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+    </style>
+
 </resources>
