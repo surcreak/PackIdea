@@ -32,6 +32,8 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
 
+    api project(":libs:kotlinbase")
+
     api deps.kotlin.stdlib
     api deps.androidx_core
     api deps.lifecycle.viewmodel_ktx

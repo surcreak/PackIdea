@@ -24,7 +24,7 @@
 def build_versions = [:]
 build_versions.min_sdk = 21
 build_versions.target_sdk = 28
-build_versions.build_tools = "28.0.3"
+build_versions.build_tools = "29.0.2"
 build_versions.version_code = 1000
 build_versions.version_name = "1.0.0"
 ext.build_versions = build_versions
@@ -85,6 +85,7 @@ versions.leakcanary = "1.6.2"
 versions.hilt = "2.28-alpha"
 versions.hilt_lifecycle = "1.0.0-alpha01"
 versions.viewpager2 = "1.1.0-alpha01"
+versions.auto_service = "1.0-rc7"
 ext.versions = versions
 
 //定义库
@@ -258,6 +259,7 @@ deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${ve
 deps.adapterHelper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.adapterHelper"
 deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
 deps.viewpager2 = "androidx.viewpager2:viewpager2:$versions.viewpager2"
+deps.auto_service = "com.google.auto.service:auto-service:$versions.auto_service"
 ext.deps = deps
 
 static def addRepos(RepositoryHandler handler) {
