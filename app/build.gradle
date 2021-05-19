@@ -85,6 +85,10 @@ android {
         generateStubs = true
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     productFlavors {
         qa {
             dimension 'qa'

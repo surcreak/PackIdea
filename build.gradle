@@ -1,10 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: 'properties.gradle'
-    ext {
-        kotlin_version = '1.4.10'
-    }
+    apply from: "${getRootDir()}/properties.gradle"
 
     repositories {
         addRepos(repositories)
