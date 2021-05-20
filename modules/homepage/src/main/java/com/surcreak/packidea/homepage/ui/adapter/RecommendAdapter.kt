@@ -34,6 +34,7 @@ class RecommendAdapter : PagingDataAdapter<UnsplashPhoto, RecommendAdapter.Galle
 
     class GalleryViewHolder(val binding: HomepageListItemPhotoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UnsplashPhoto) {
+            binding.photographer.text = item.user.name
             Glide.with(itemView.context)
                 .asDrawable()
                 .error(R.drawable.error)
