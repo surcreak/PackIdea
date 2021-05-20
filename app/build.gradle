@@ -9,6 +9,7 @@ apply plugin: 'packer'
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
+
     defaultConfig {
         applicationId "com.surcreak.packidea"
         minSdkVersion build_versions.min_sdk

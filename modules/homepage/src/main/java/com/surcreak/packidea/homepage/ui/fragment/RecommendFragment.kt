@@ -37,6 +37,9 @@ class RecommendFragment : BaseFragment() {
         recycleView.adapter = recommendAdapter
         //recommendAdapter.setEmptyView(R.layout.default_list_empty)
         recommendViewModel.test()
+        refreshLayout.setOnRefreshListener {
+            search("Apple")
+        }
         search("Apple")
     }
 

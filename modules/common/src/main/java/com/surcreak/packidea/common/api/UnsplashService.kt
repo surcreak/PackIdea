@@ -1,6 +1,6 @@
 package com.surcreak.packidea.common.api
 
-import com.google.gson.annotations.SerializedName
+import com.surcreak.packidea.base.BuildConfig
 import com.surcreak.packidea.common.data.UnsplashSearchResponse
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -15,7 +15,7 @@ interface UnsplashService {
         @Query("query") query: String,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int,
-        @Query("client_id") clientId: String = "null"
+        @Query("client_id") clientId: String = BuildConfig.UNSPLASH_ACCESS_KEY
     ): UnsplashSearchResponse
 
     companion object {

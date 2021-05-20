@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply from:"${getRootDir()}/properties.gradle"
+
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
@@ -16,6 +18,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\"")
     }
 }
 
@@ -87,5 +90,8 @@ dependencies {
     kapt deps.hilt.android_compiler
     api deps.hilt_lifecycle.lifecycle_viewmodel
     kapt deps.hilt_lifecycle.compiler
+}
 
+def getUnsplashAccess() {
+    return project.findProperty("unsplash_access_key")
 }

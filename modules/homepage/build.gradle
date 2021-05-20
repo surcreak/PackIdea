@@ -18,6 +18,10 @@ android {
         consumerProguardFiles 'consumer-rules.pro'
     }
 
+    viewBinding {
+        enabled = true
+    }
+
     resourcePrefix "homepage_"
 }
 
