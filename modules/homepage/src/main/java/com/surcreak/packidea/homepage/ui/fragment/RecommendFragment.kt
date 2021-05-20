@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import com.surcreak.packidea.base.ui.fragment.BaseFragment
 import com.surcreak.packidea.base.utils.Logger
 import com.surcreak.packidea.homepage.R
@@ -26,18 +24,13 @@ class RecommendFragment : BaseFragment() {
 
     private var searchJob: Job? = null
     private val recommendViewModel : RecommendViewModel by viewModels()
+    private val recommendAdapter = RecommendAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val rootView = inflater.inflate(R.layout.homepage_fragment_recommend, container, false)
-        return rootView
-    }
-
-    private val recommendAdapter by lazy {
-        RecommendAdapter()
+        savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.homepage_fragment_recommend, container, false)
     }
 
     override fun onViewCreated(savedInstanceState: Bundle?) {
@@ -49,11 +42,12 @@ class RecommendFragment : BaseFragment() {
 
     private fun search(query: String) {
         // Make sure we cancel the previous job before creating a new one
+        Logger.d(TAG, "search")
         searchJob?.cancel()
         searchJob = lifecycleScope.launch {
             recommendViewModel.searchPictures(query).collectLatest {
                 recommendAdapter.submitData(it)
-                Logger.d("gaol it=$it")
+                Logger.d(TAG, "search it=$it")
             }
         }
     }
